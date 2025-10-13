@@ -1,0 +1,14 @@
+
+build:
+    cd ./src && \
+        make && \
+        objcopy --remove-section=__mcount_loc beautifullies.ko
+
+clean:
+    cd ./src && make clean
+
+load:
+    sudo insmod ./src/beautifullies.ko taint_value=`cat /proc/sys/kernel/tainted`
+
+unload:
+    sudo rmmod beautifullies
