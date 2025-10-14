@@ -7,9 +7,10 @@ This also:
 * removes the `__mcount_loc` section to make everything in the module `notrace`
 * restores the taint
 * removes `kallsyms_lookup_name()` from `touched_functions`
+* resets `printk_once` for the message that warns about an unsigned module
+  being load. (HACKY APPROACH WARNING)
 
 TODO:
-* reset printk_once
 * a privesc payload
 
 [b-complex - beautiful lies](https://youtube.com/watch?v=tzqw_Dqa0SU)
@@ -18,6 +19,7 @@ TODO:
 
 All you need is:
 ```
+just extract-kernel # optional for reseting the printk_once()
 just build
 just load
 just unload
