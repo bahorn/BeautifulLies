@@ -5,13 +5,16 @@ An LKM to rewrite the printk ringbuffer, removing messages containing
 
 This also:
 * removes the `__mcount_loc` section to make everything in the module `notrace`
-* restores the taint
+* restores the taint to what it was before the module was loaded.
 * removes `kallsyms_lookup_name()` from `touched_functions`
 * resets `printk_once` for the message that warns about an unsigned module
   being load. (HACKY APPROACH WARNING)
 
 TODO:
 * a privesc payload
+
+This does not:
+* hide itself from the module list, or anywhere else.
 
 [b-complex - beautiful lies](https://youtube.com/watch?v=tzqw_Dqa0SU)
 
@@ -24,6 +27,10 @@ just build
 just load
 just unload
 ```
+
+This has only been tested on a Ubuntu 24.04 machine on a 6.8 kernel.
+Your millage may vary, as this has its own copies of kernel structs which might
+be different on your kernel.
 
 ## License
 
