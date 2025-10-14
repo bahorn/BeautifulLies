@@ -6,9 +6,10 @@ An LKM to rewrite the printk ringbuffer, removing messages containing
 This also:
 * removes the `__mcount_loc` section to make everything in the module `notrace`
 * restores the taint
+* removes `kallsyms_lookup_name()` from `touched_functions`
 
 TODO:
-* removes `kallsyms_lookup_name()` from `touched_functions`
+* reset printk_once
 * a privesc payload
 
 [b-complex - beautiful lies](https://youtube.com/watch?v=tzqw_Dqa0SU)
