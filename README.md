@@ -14,6 +14,15 @@ TODO:
 
 [b-complex - beautiful lies](https://youtube.com/watch?v=tzqw_Dqa0SU)
 
+## Usage
+
+All you need is:
+```
+just build
+just load
+just unload
+```
+
 ## License
 
 GPL2.
