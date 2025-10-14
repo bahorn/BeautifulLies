@@ -5,3 +5,5 @@ modules.order
 *.cmd
 *.mod.c
 *.symvers
+*.elf
+*.bin
