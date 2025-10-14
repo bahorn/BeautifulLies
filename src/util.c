@@ -70,7 +70,6 @@ void clean_ftrace_touched(char *name)
         if (!(rec->flags & FTRACE_FL_TOUCHED)) continue;
 
         lookup_symbol_f(rec->ip, sym_name);
-        printk("%s\n", sym_name);
         if (strcmp(name, sym_name) == 0) {
             rec->flags &= ~FTRACE_FL_TOUCHED;
         }
