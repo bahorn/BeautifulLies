@@ -15,10 +15,16 @@ static unsigned long int taint_value = 0;
 module_param(taint_value, long, 0);
 MODULE_PARM_DESC(taint_value, "Taint Value");
 
+static unsigned long int already_done_offset = 0;
+module_param(already_done_offset, long, 0);
+MODULE_PARM_DESC(already_done_offset, "offset to the already_done to reset");
+
+
 static int mod_init(void)
 {
     printk(KERN_INFO "Loaded\n");
     untaint_kernel(taint_value);
+    reset_already_done(already_done_offset);
     return filter_dmesg();
 }
 
