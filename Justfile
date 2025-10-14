@@ -1,4 +1,3 @@
-
 build:
     cd ./src && \
         make && \
@@ -12,3 +11,8 @@ load:
 
 unload:
     sudo rmmod beautifullies
+
+extract-kernel:
+    mkdir -p artifacts
+    sudo ./tools/extract-vmlinux.sh /boot/vmlinuz-`uname -r` > ./artifacts/kern.bin
+    ./tools/vmlinux-to-elf/vmlinux-to-elf ./artifacts/kern.bin ./artifacts/kern.elf
