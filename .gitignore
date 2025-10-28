@@ -8,3 +8,4 @@ modules.order
 *.elf
 *.bin
 artifacts/
+old/

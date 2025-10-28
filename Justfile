@@ -2,7 +2,8 @@ build:
     cd ./src && \
         make && \
         objcopy --remove-section=__mcount_loc -X --keep-global-symbol='' --strip-unneeded beautifullies.ko && \
-        objcopy --strip-unneeded beautifullies.ko
+        objcopy --strip-unneeded beautifullies.ko && \
+        python3 ../tools/remove_syms.py beautifullies.ko
 
 clean:
     cd ./src && make clean
