@@ -110,15 +110,15 @@ typedef bool (*prb_reserve_fn)(struct prb_reserved_entry *e, struct printk_ringb
 
 typedef void (*prb_final_commit_fn)(struct prb_reserved_entry *e);
 
-int initialize_ringbuffer(void);
-void iterate_ringbuffer(struct printk_ringbuffer *rb);
-void add_to_rb(struct printk_ringbuffer *rb, struct printk_record *r);
+static int initialize_ringbuffer(void);
+static void iterate_ringbuffer(struct printk_ringbuffer *rb);
+static void add_to_rb(struct printk_ringbuffer *rb, struct printk_record *r);
 
-prb_init_fn prb_init;
-prb_first_valid_seq_fn prb_first_valid_seq;
-prb_read_valid_fn prb_read_valid;
-prb_reserve_fn prb_reserve;
-prb_final_commit_fn prb_final_commit;
+static prb_init_fn prb_init;
+static prb_first_valid_seq_fn prb_first_valid_seq;
+static prb_read_valid_fn prb_read_valid;
+static prb_reserve_fn prb_reserve;
+static prb_final_commit_fn prb_final_commit;
 
 
 
@@ -140,7 +140,7 @@ static inline void prb_rec_init_wr(struct printk_record *r,
 }
 
 
-void add_to_rb(struct printk_ringbuffer *rb,
+static void add_to_rb(struct printk_ringbuffer *rb,
 				     struct printk_record *r)
 {
 	struct prb_reserved_entry e;
@@ -166,7 +166,7 @@ void add_to_rb(struct printk_ringbuffer *rb,
 }
 
 
-void iterate_ringbuffer(struct printk_ringbuffer *rb)
+static void iterate_ringbuffer(struct printk_ringbuffer *rb)
 {
     struct printk_info info;
     struct printk_record rec;
@@ -182,7 +182,7 @@ void iterate_ringbuffer(struct printk_ringbuffer *rb)
 	}
 }
 
-int initialize_ringbuffer(void)
+static int initialize_ringbuffer(void)
 {
     // these are kinda random
     size_t text_size = 1024*1024;

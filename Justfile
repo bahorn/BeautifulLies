@@ -1,7 +1,8 @@
 build:
     cd ./src && \
         make && \
-        objcopy --remove-section=__mcount_loc beautifullies.ko
+        objcopy --remove-section=__mcount_loc -X --keep-global-symbol='' --strip-unneeded beautifullies.ko && \
+        objcopy --strip-unneeded beautifullies.ko
 
 clean:
     cd ./src && make clean

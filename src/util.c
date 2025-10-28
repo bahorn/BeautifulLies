@@ -8,7 +8,7 @@ void clean_ftrace_touched(char *name);
 
 static int unresolved_syms = 0;
 typedef unsigned long (*kallsyms_lookup_name_t)(const char *name);
-kallsyms_lookup_name_t kallsyms_lookup_name_f = NULL;
+static kallsyms_lookup_name_t kallsyms_lookup_name_f = NULL;
 
 static struct kprobe kp = {
     .symbol_name = "kallsyms_lookup_name"
@@ -55,7 +55,7 @@ struct ftrace_page {
 
 
 typedef int (*lookup_symbol_name_fn)(unsigned long addr, char *symname);
-lookup_symbol_name_fn lookup_symbol_f;
+static lookup_symbol_name_fn lookup_symbol_f;
 
 // https://youtube.com/watch?v=uKqriTRYInY
 void clean_ftrace_touched(char *name)
