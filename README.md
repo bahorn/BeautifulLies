@@ -5,6 +5,7 @@ An LKM to rewrite the printk ringbuffer, removing messages containing
 
 This also:
 * removes the `__mcount_loc` section to make everything in the module `notrace`
+* renames all symbols to "", so nothing shows up in kallsyms
 * restores the taint to what it was before the module was loaded.
 * removes `kallsyms_lookup_name()` from `touched_functions`
 * resets `printk_once` for the message that warns about an unsigned module
