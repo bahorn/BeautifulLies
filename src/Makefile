@@ -2,9 +2,7 @@
 TARGET = beautifullies
 ccflags-y := -std=gnu99 \
 	-Wno-declaration-after-statement \
-	-fvisibility=hidden \
-	 -fvisibility-inlines-hidden
-ldflags-y := -r
+	-fvisibility=hidden
 
 obj-m += $(TARGET).o
 

@@ -7,7 +7,9 @@ This also:
 * removes the `__mcount_loc` section to make everything in the module `notrace`
 * renames all symbols to "", so nothing shows up in kallsyms
 * restores the taint to what it was before the module was loaded.
-* removes `kallsyms_lookup_name()` from `touched_functions`
+* removes `kallsyms_lookup_name()` from `touched_functions` (if `KPROBE_LOOKUP`
+  is defined in `src/util.c`) else it uses the non-kprobe approach to find
+  the symbol with less artifacts.
 * resets `printk_once` for the message that warns about an unsigned module
   being load. (HACKY APPROACH WARNING)
 
