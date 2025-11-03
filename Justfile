@@ -10,8 +10,7 @@ clean:
 
 load:
     sudo insmod ./src/beautifullies.ko \
-        taint_value=`cat /proc/sys/kernel/tainted` \
-        already_done_offset=`python3 ./tools/get_offset.py ./artifacts/kern.elf`
+        taint_value=`cat /proc/sys/kernel/tainted`
 
 unload:
     sudo rmmod beautifullies

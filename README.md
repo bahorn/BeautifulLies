@@ -11,7 +11,8 @@ This also:
   is defined in `src/util.c`) else it uses the non-kprobe approach to find
   the symbol with less artifacts.
 * resets `printk_once` for the message that warns about an unsigned module
-  being load. (HACKY APPROACH WARNING)
+  being load. implemented by searching a function for instructions that set the
+  flag.
 
 TODO:
 * a privesc payload
@@ -25,7 +26,6 @@ This does not:
 
 All you need is:
 ```
-just extract-kernel # optional for reseting the printk_once()
 just build
 just load
 just unload
